@@ -25,17 +25,45 @@
 			color: colors[rand4],
 			passengers: rand5,
 			convertible: convertible[rand6],
-			mileage: 0
+			mileage: 0,
+			engine:makeEngine()
 		};
+		
+		
 		return car;
 	}
 
 	function displayCar(car) {
 		console.log("Your new car is a " + car.year + " " + car.make + " " + car.model);
+		console.log("Cylinder:"+car.engine.cylinder);
+		console.log("CC volume: "+car.engine.cc_vol);
+		console.log("Fuel type:"+car.engine.fuel_type);
+		console.log("Max torques:"+car.engine.max_torque);
+		
 	}
 
 	var carToSell = makeCar();
 	displayCar(carToSell);
+	
+	function makeEngine(){
+		var cylinders=["1","2","4"]
+		var çc_vols=["800","1000","1500"]
+		var fuel_types=["diesel","petrol"]
+		var max_torques=["3000","4000","4500","5000"]
+		
+		var rand_cylinders=Math.floor((Math.random()*cylinders.length))
+		var rand_cc_vols=Math.floor((Math.random()*çc_vols.length))
+		var rand_fuel_types=Math.floor((Math.random()*fuel_types.length))
+		var rand_max_torques=Math.floor((Math.random()*max_torques.length))
+		
+		var engine={
+			cylinder:cylinders[rand_cylinders],
+			cc_vol:çc_vols[rand_cc_vols],
+			fuel_type:fuel_types[rand_fuel_types],
+			max_torque:max_torques[rand_max_torques]
+		}
+		return engine
+	}
 
   </script>
 </head>
